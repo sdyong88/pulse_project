@@ -1,0 +1,4 @@
+      invoke  active_record
+      remove    db/migrate/20160829233632_create_users.rb
+      create    db/migrate/20160829233947_create_users.rb
+   identical    app/models/user.rb
