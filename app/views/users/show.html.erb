@@ -76,12 +76,6 @@
 <div id="info">
 </div>
 
-	
-	
-	
-
-
-
 <p>Emergency Contacts</p>
 <ul>
 <%@contacts.each do |contact|%>
@@ -97,6 +91,7 @@
 	<input id="first_name" type="text" name="contact[name]" placeholder="John">
 	<label for="phone_number">Phone Number:</label>
 	<input id="phone_number" type="text" name="contact[phone_number]" placeholder="8885555">
+	<input type="hidden" name="country_code" value="+1">
 	
 	<br>
 	<input type="submit" value="Submit">
