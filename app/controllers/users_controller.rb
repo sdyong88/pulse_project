@@ -6,12 +6,16 @@ Authy.api_key = ENV['AUTHY_KEY']
 Authy.api_uri = 'https://api.authy.com/'
 
 class UsersController < ApplicationController
+  def index
+  end
+
   def new
     @user = User.new
   end
+
   def show
-    @user = User.find_by(id: session[:user_id])
-    @contacts = Contact.where(user_id: session[:user_id])
+    @user = current_user
+    @contacts = current_user.contacts
   end
 
   def create
@@ -37,7 +41,7 @@ class UsersController < ApplicationController
   		redirect_to verify_path
   	else
       flash[:errors] = @user.errors.full_messages
-  		render :new
+  		redirect_to '/users/new'
   	end
   end
 

@@ -1,17 +1,11 @@
-<h1>Sign up for Pulse</h1>
-<p>Thanks for showing your interest in signing up!</p>
-
-<div id='login'>
-<h1>Login</h1>
-<form action='/session' method='post'>
-  <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
-  <p>Email: <input type='text' name='email'></p>
-  <p>Password: <input type='text' name='password'></p>
-  <p><input type='submit' value="Log In"></p>
-</form>
-</div>
-
-<%= form_for @user do |f| %>
+<h4>Register</h4>
+<% if flash[:errors] %>
+  <% flash[:errors].each do |e| %>
+    <p class="errors"><%= e %></p>
+  <% end %>
+<% end %>
+<div class="form">
+  <%= form_for @user do |f| %>
   <div class="form-group">
     <%= f.label :first_name, "First Name:" %>
     <%= f.text_field :first_name, class: "form-control", placeholder: "Zingelbert " %>
@@ -21,11 +15,11 @@
     <%= f.text_field :last_name, class: "form-control", placeholder: "Bembledack" %>
   </div>
   <div class="form-group">
-    <%= f.label :email, "Enter Your E-mail Address:" %>
+    <%= f.label :email, "E-mail Address:" %>
     <%= f.email_field :email, class: "form-control", placeholder: "me@mydomain.com" %>
   </div>
   <div class="form-group">
-    <%= f.label :password, "Enter a password:" %>
+    <%= f.label :password, "Password:" %>
     <%= f.password_field :password, class: "form-control" %>
   </div>
   <div class="form-group">
@@ -36,36 +30,8 @@
     <%= f.label :phone_number %>
     <%= f.text_field :phone_number, class: "form-control", id: "authy-cellphone", placeholder:'408-555-5555' %>
   </div>
-  <button class="btn btn-primary">Sign up</button>
-<% end %>
-
-<!-- Created a hardcode Form just in case form above does not create new user -->
-
-
-<!-- <form action="/users/create" method="post">
-	<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
-	<label for="first_name">First Name:</label>
-	<input id="first_name" type="text" name="user[first_name]" placeholder="John">
-	<br>
-	<label for="last_name">Last Name:</label>
-	<input id="last_name" type="text" name="user[last_name]" placeholder="Doe">
-	<br>
-	<label for="email">Email:</label>
-	<input id="email" type="text" name="user[email]" placeholder="Doe@john.com">
-	<br>
-	<label for="password">Password:</label>
-	<input id="password" type="password" name="user[password]">
-	<br>
-	<label for="country_code">Country Code:</label>
-	<input id="country_code" type="text" name="user[country_code]" placeholder="408">
-	<br>
-	<label for="phone_number">Phone Number:</label>
-	<input id="phone_number" type="text" name="user[phone_number]" placeholder="8885555">
-	<br>
-	<input type="submit" value="Submit">
-</form>
- -->
-
-
-
-
+  <button class="btn btn-primary center-block">Sign up</button>
+  <h4>or</h4>
+  <a href="/"><button class="btn btn-primary center-block">Login</button></a>
+  <% end %>
+</div>

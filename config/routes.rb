@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
-  root 'users#new'
-  get 'users/new'
+  root 'users#index'
+  get '/users/new' => 'users#new'
   post '/users/create' => 'users#create'
 
   get 'users/create'
@@ -12,14 +12,14 @@ Rails.application.routes.draw do
   post '/contact' => 'contacts#create'
 
   get "users/verify", to: 'users#show_verify', as: 'verify'
-  post "users/verify" 
+  post "users/verify"
   post "users/resend"
   post "notification/trigger" => 'notifications#trigger_sms_alert'
   # Create Users
   resources :users, only:[:new,:create,:show]
 
   #Home Page
-  
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -1,3 +1,115 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.errors{
+  display: block;
+  text-align: center;
+}
+
+h4{
+  text-align: center;
+}
+
+.form{
+  width: 50%;
+  height: 70%;
+  display: block;
+  padding-bottom: 5%;
+  margin: auto;
+}
+
+h1{
+  display: block;
+  text-align: center;
+  margin: 3%;
+}
+
+.pulse{
+  -webkit-animation: pulse 1.5s linear infinite;
+  -moz-animation: pulse 1.5s linear infinite;
+  -ms-animation: pulse 1.5s linear infinite;
+  animation: pulse 1.5s linear infinite;
+}
+
+@keyframes "pulse" {
+  0% {
+    color: rgba(165, 25, 25, 1);
+  }
+  90% {
+    color: rgba(255,0,0,0.0);
+  }
+  100% {
+    color: rgba(255,0,0,1.0);
+  }
+}
+
+@-moz-keyframes pulse {
+  0% {
+    color: rgba(165, 25, 25, 1);
+  }
+  90% {
+    color: rgba(255,0,0,0.0);
+  }
+  100% {
+    color: rgba(255,0,0,1.0);
+  }
+}
+
+@-webkit-keyframes "pulse" {
+ 0%{
+    color: rgba(165, 25, 25, 1);
+  }
+  90%{
+    color: rgba(255,0,0,0.0);
+  }
+  100%{
+    color: rgba(255,0,0,1.0);
+  }
+}
+
+@-ms-keyframes "pulse" {
+  0%{
+    color: rgba(165, 25, 25, 1);
+  }
+  90%{
+    color: rgba(255,0,0,0.0);
+  }
+  100%{
+    color: rgba(255,0,0,1.0);
+  }
+}
+// @-webkit-keyframes pulse {
+//  0% {
+//  -webkit-transform: scale(1, 1);
+// }
+//  50% {
+//  -webkit-transform: scale(1.1, 1.1);
+// }
+//  100% {
+//  -webkit-transform: scale(1, 1);
+// };
+// }
+//
+// @-webkit-keyframes pulse {
+//  0% {
+//  -webkit-transform: scale(1, 1);
+// }
+//  50% {
+//  -webkit-transform: scale(1.1, 1.1);
+// }
+//  100% {
+//  -webkit-transform: scale(1, 1);
+// };
+// }
+//
+// @keyframes pulse {
+//  0% {
+//  transform: scale(1, 1);
+// }
+//  50% {
+//  transform: scale(1.1, 1.1);
+// }
+//  100% {
+// transform: scale(1, 1);
+// };
+// }
