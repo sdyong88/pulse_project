@@ -7,10 +7,14 @@ Rails.application.routes.draw do
   get 'users/create'
 
   get 'users/show'
+  post '/session' =>'sessions#create'
+  delete '/sessions' => 'sessions#destroy'
+  post '/contact' => 'contacts#create'
 
   get "users/verify", to: 'users#show_verify', as: 'verify'
   post "users/verify" 
   post "users/resend"
+  post "notification/trigger" => 'notifications#trigger_sms_alert'
   # Create Users
   resources :users, only:[:new,:create,:show]
 

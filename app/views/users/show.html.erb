@@ -1,3 +1,40 @@
+
+<% if current_user %>
+  <form action='/sessions' method='post'>
+    <input type='hidden' name='authenticity_token' value='<%= form_authenticity_token %>'>
+    <input type='hidden' name='_method' value='delete'>
+    <input type='submit' value='Log Out'>
+  </form>
+ <%end%>
+  <br>
+
 <h1><%=@user.first_name%></h1>
 
+<p>This is Where the map goes</p>
 
+
+<form action="/notification/trigger" method="post">
+	<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+	<input type="hidden" name="message" value="This the Alert Button">
+	<input type="submit" value="Trigger Alarm">
+</form>
+
+<p>Emergency Contacts</p>
+<ul>
+<%@contacts.each do |contact|%>
+	<li><%=contact.name%></li>
+<%end%>
+</ul>
+
+
+<p>Enter Emergency Contacts</p>
+<form action="/contact" method="post">
+	<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+	<label for="first_name">Name:</label>
+	<input id="first_name" type="text" name="contact[name]" placeholder="John">
+	<label for="phone_number">Phone Number:</label>
+	<input id="phone_number" type="text" name="contact[phone_number]" placeholder="8885555">
+	
+	<br>
+	<input type="submit" value="Submit">
+</form>

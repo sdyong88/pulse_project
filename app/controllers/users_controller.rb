@@ -1,7 +1,8 @@
 require 'authy'
 require 'twilio-ruby'
 
-Authy.api_key = 'LdBse3mHAr3pGnMGBp3yj0Mi69cPdFcd'
+# Authy.api_key = Key.find_by(name:'Authy.api_key').key
+Authy.api_key = ENV['AUTHY_KEY']
 Authy.api_uri = 'https://api.authy.com/'
 
 class UsersController < ApplicationController
@@ -10,6 +11,7 @@ class UsersController < ApplicationController
   end
   def show
     @user = User.find_by(id: session[:user_id])
+    @contacts = Contact.where(user_id: session[:user_id])
   end
 
   def create
@@ -50,11 +52,8 @@ class UsersController < ApplicationController
     puts token
   	if token.ok?
   		# Mark the user as verified for get /user/:id
-  		# @user.update(verified:true)
   		#Send an SMS to the user for success!
-
-  		# send_message("Sign up complete")
-
+  		send_message("Sign up complete")
   		#show the user profile
   		redirect_to user_path(@user.id)
   	else
@@ -71,18 +70,14 @@ class UsersController < ApplicationController
   end
 
   private
-  @twilio_number = '4086178899'
-  # ideally would pull from data base for validation key
-  @twilio_account_sid = 'AC8dac8cfa4d451bdb5ae909f7ded9c7cc'
-  @twilio_auth_token = 'c1c4e60971ca34a9b7964c019ceaba22'
+
 
   def send_message(message)
   	@user = current_user
-    puts '========='
-    puts @user
-    puts '========='
-  	twilio_number = ENV[@twilio_number]
-  	@client = Twilio::REST::Client.new ENV[@twilio_account_sid], ENV[@twilio_auth_token]
+  	# twilio_number = "+18082011403"
+    twilio_number = ENV['TWILIO_NUMBER']
+  	@client = Twilio::REST::Client.new ENV['TWILIO_ACCOUNT_SID'], ENV['TWILIO_AUTH_TOKEN']
+    # @client = Twilio::REST::Client.new Key.find_by(name:'Test_Account_Sid').key, Key.find_by(name:'Test_Auth_Token').key
   	message = @client.account.messages.create(
   		:from => twilio_number,
   		:to => @user.phone_number,

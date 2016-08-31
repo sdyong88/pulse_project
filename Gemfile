@@ -40,6 +40,7 @@ gem 'bcrypt', '~> 3.1.7'
 # gem 'debugger', group: [:development, :test]
 gem 'twilio-ruby', '~> 4.11', '>= 4.11.1'
 gem 'authy'
+gem 'figaro'
 
 
 
