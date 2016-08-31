@@ -2,6 +2,10 @@
 
 <p>An Account has been created, but we need to make sure you're a human in control of the phone number you gave us. Please enter the Verfication code we just sent to your phone</p>
 
+<% if flash[:notice] %>
+	<%= flash[:notice] %>
+<% end %>
+
 <%= form_tag users_verify_path do %>
 	<div class= "form-group">
 		<%= label_tag :code, "Verification Code:" %>
