@@ -2,11 +2,15 @@ require 'twilio-ruby'
 
 class NotificationsController < ApplicationController
 	def trigger_sms_alert
+		@link = params[:link]
+		puts "++++++++++++++++++++++++++++++++++++++++++++"
+		puts @link
 		@user = User.find_by(id: session[:user_id])
+
 		@alert_message = "
 			TEST TEST TEST TEST TEST
 			This has been triggered by our user: #{@user.first_name} #{@user.last_name}
-			There has been some kind of emergency at https://www.google.com/maps/place/
+			There has been some kind of emergency at #{@link}
 			Please contact #{@user.first_name} or wait until they get back to you
 			with more information
 			"
