@@ -4,9 +4,10 @@
 
 <div class="form">
 	<%= form_tag users_verify_path do %>
-<% if flash[:notice] %>
-	<%= flash[:notice] %>
-<% end %>
+		<% if flash[:notice] %>
+			<%= flash[:notice] %>
+		<% end %>
+	<%end%>
 
 <%= form_tag users_verify_path do %>
 	<div class= "form-group">
@@ -14,7 +15,7 @@
 		<%= text_field_tag :token, '', class: "form-control"%>
 	</div>
 	<button type="submit" class="btn btn-primary">Verify Token</button>
-	<%end%>
+<%end%>
 </div>
 
 
