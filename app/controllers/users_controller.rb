@@ -23,18 +23,20 @@ class UsersController < ApplicationController
 
   def create
   	@user = User.new(user_params)
-  	if @user.save
+  	if @user.valid?
   		# Save the user_id to the session object
-  		session[:user_id] = @user.id
-
+      @user.save
   		# Create user on Authy, will reutrn an id on the object
   		authy = Authy::API.register_user(
         :email => @user.email,
         :cellphone => @user.phone_number,
         :country_code => '1'
         )
+      #after @user is put into data base and created a Authy account than save.
+      
       if authy.ok?
-        @user.update(authy_id: authy.id)# this will give the user authy id to store it in the database
+        @user.update(authy_id: authy.id)
+        session[:user_id] = @user.id# this will give the user authy id to store it in the database
       else
         @user.delete
       end

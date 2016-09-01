@@ -3,16 +3,13 @@ require 'twilio-ruby'
 class NotificationsController < ApplicationController
 	def trigger_sms_alert
 		@link = params[:link]
-		puts "++++++++++++++++++++++++++++++++++++++++++++"
-		puts @link
 		@user = User.find_by(id: session[:user_id])
-
-		@alert_message = "
-			TEST TEST TEST TEST TEST
+		@alert_message = 
+			"
 			This has been triggered by our user: #{@user.first_name} #{@user.last_name}
 			There has been some kind of emergency at #{@link}
 			Please contact #{@user.first_name} or wait until they get back to you
-			with more information
+			with more information. 
 			"
 		#this should get all of the emergency contact from the clients list
 		@emergency_contact_list = Contact.where(user_id: session[:user_id])

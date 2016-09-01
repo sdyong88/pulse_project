@@ -6,12 +6,6 @@ class ContactsController < ApplicationController
 		@scan_number = number.scan(/\d+/).prepend("+1").join.to_s
 		@test_number = "#{params[:country_code]}" + "#{number}"
 
-		puts '==========='
-		puts @scan_number.to_s
-		puts '============='
-		puts params[:contact][:name]
-		puts '============='
-
 		
 		@contact = @user.contacts.create(
 			name: params[:contact][:name],
@@ -24,7 +18,6 @@ class ContactsController < ApplicationController
 			redirect_to :back
 		else
 			flash[:errors] = @contact.errors.full_messages
-			puts @scan_number+ "did not get inserted"
 			redirect_to :back
 		end
 	end
