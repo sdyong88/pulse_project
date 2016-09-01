@@ -9,9 +9,7 @@ class Contact < ActiveRecord::Base
   	@twilio_number = ENV['TWILIO_NUMBER']
     @client = Twilio::REST::Client.new ENV['TWILIO_ACCOUNT_SID'], ENV['TWILIO_AUTH_TOKEN']
     reminder = "
-    	Hi this is the PULSE EMERGENCY. You've been
-    	added you into their Emergency Contacts. When Triggered you will get a SMS
-    	from our user with a location
+    	Hi this is the PULSE. You have been added by one of our users as one of their Emergency Contacts. You will now be alerted if they are in trouble.
     	"
     message = @client.account.messages.create(
       :from => @twilio_number,

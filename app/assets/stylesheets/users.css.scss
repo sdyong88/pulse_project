@@ -1,6 +1,13 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+#login_reg_border{
+  border: 1px solid black;
+  width: 70%;
+  margin: auto;
+  padding: 3% 0 3% 0;
+}
+
 .flash{
   -webkit-animation-name: greenPulse;
   -webkit-animation-duration: 1s;
@@ -43,11 +50,14 @@ h4, h3{
 }
 
 .form{
+  background-color: white;
   width: 50%;
   height: 70%;
   display: block;
-  padding-bottom: 5%;
   margin: auto;
+  border: 2px solid black;
+  padding: 2%;
+  border-radius: 5px;
 }
 
 h1{

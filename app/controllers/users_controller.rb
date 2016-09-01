@@ -10,9 +10,13 @@ class UsersController < ApplicationController
     if session[:user_id]
       redirect_to '/users/show'
     end
+    @user = User.new
   end
 
   def new
+    if session[:user_id]
+      redirect_to '/users/show'
+    end
     @user = User.new
   end
 
@@ -33,7 +37,7 @@ class UsersController < ApplicationController
         :country_code => '1'
         )
       #after @user is put into data base and created a Authy account than save.
-      
+
       if authy.ok?
         @user.update(authy_id: authy.id)
         session[:user_id] = @user.id# this will give the user authy id to store it in the database
@@ -45,7 +49,7 @@ class UsersController < ApplicationController
   		redirect_to verify_path
   	else
       flash[:errors] = @user.errors.full_messages
-  		redirect_to '/users/new'
+  		redirect_to '/'
   	end
   end
 

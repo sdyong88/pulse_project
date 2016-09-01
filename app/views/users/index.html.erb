@@ -1,8 +1,11 @@
-<% if flash[:errors] %>
-  <% flash[:errors].each do |e| %>
-    <p class="errors"><%= e %></p>
+<!-- <div id="login_reg_border"> -->
+  <% if flash[:errors] %>
+    <% flash[:errors].each do |e| %>
+      <p class="errors"><%= e %></p>
+    <% end %>
   <% end %>
-<% end %>
+
+<!-- Login Form -->
 <form class="form" action="/session" method="post">
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
   <div class="form-group">
@@ -12,9 +15,54 @@
     <input class="form-control" type="password" name="password" placeholder="Password" />
   </div>
   <div class="form-group">
-    <button class="btn btn-primary btn-block">Login</button>
+    <button class="btn btn-primary btn-block btn-lg">Login</button>
   </div>
+<!-- Register Form Button -->
   <div class="form-group">
-    <a href="/users/new"><button class="btn btn-primary  btn-block">Register</button></a>
+    <button type="button" class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-target="#register">Register</button>
   </div>
 </form>
+
+<!-- Register Form Model -->
+<div class="modal fade" id="register" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Register</h4>
+      </div>
+      <div class="modal-body">
+        <%= form_for @user do |f| %>
+        <div class="form-group">
+          <%= f.label :first_name, "First Name:" %>
+          <%= f.text_field :first_name, class: "form-control", placeholder: "Harry " %>
+        </div>
+         <div class="form-group">
+          <%= f.label :last_name, "Last Name:" %>
+          <%= f.text_field :last_name, class: "form-control", placeholder: "Potter" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :email, "E-mail Address:" %>
+          <%= f.email_field :email, class: "form-control", placeholder: "me@mydomain.com" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :password, "Password:" %>
+          <%= f.password_field :password, class: "form-control", placeholder: "Your password here"%>
+        </div>
+        <div class="form-group">
+          <%= f.label :country_code %>
+          <%= f.text_field :country_code, class: "form-control", id: "authy-countries", placeholder:'1' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :phone_number %>
+          <%= f.text_field :phone_number, class: "form-control", id: "authy-cellphone", placeholder:'408-555-5555' %>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <input type="submit" class="btn btn-default" data-dismiss="modal" value="Close" />
+        <button class="btn btn-primary">Register</button>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
