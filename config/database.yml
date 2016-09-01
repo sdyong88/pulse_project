@@ -16,6 +16,7 @@
 #
 default: &default
   adapter: postgresql
+  username: ubuntu
   encoding: unicode
   # For details on connection pooling, see rails configuration guide
   # http://guides.rubyonrails.org/configuring.html#database-pooling
@@ -81,5 +82,5 @@ test:
 production:
   <<: *default
   database: Ruby_Pulse_production
-  username: Ruby_Pulse
+
   password: <%= ENV['RUBY_PULSE_DATABASE_PASSWORD'] %>
