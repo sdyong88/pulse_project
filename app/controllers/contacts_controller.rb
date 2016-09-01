@@ -23,6 +23,11 @@ class ContactsController < ApplicationController
 		end
 	end
 
+	def destroy
+		Contact.find(params[:contact_id]).destroy
+		redirect_to '/users/show'
+	end
+
 	private
 	def contact_params
 		params.require(:contact).permit(:name,:phone_number, :user_id)

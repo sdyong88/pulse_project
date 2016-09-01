@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   get 'users/show'
   post '/session' =>'sessions#create'
   delete '/sessions' => 'sessions#destroy'
+
+  delete '/contact' => 'contacts#destroy'
   post '/contact' => 'contacts#create'
 
   get "users/verify", to: 'users#show_verify', as: 'verify'

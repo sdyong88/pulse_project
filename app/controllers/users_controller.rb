@@ -7,6 +7,9 @@ Authy.api_uri = 'https://api.authy.com/'
 
 class UsersController < ApplicationController
   def index
+    if session[:user_id]
+      redirect_to '/users/show'
+    end
   end
 
   def new
@@ -34,7 +37,6 @@ class UsersController < ApplicationController
         @user.update(authy_id: authy.id)# this will give the user authy id to store it in the database
       else
         @user.delete
-        fail
       end
   		#Sends an SMS to your user
   		Authy::API.request_sms(id: @user.authy_id)

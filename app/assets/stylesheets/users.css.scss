@@ -1,12 +1,44 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.flash{
+  -webkit-animation-name: greenPulse;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-iteration-count: infinite;
+}
+
+@-webkit-keyframes greenPulse {
+  from { background-color: #bc330d; -webkit-box-shadow: 0 0 9px #333; }
+  50% { background-color: #e33100; -webkit-box-shadow: 0 0 18px #e33100; }
+  to { background-color: #bc330d; -webkit-box-shadow: 0 0 9px #333; }
+}
+
+#add_contact{
+  width: 70%;
+  display: block;
+  margin: auto;
+}
+
+#info{
+  width: 70%;
+  margin: auto;
+  padding: 1% 0 1% 0;
+}
+
+#map{
+  width: 70%;
+  height: 80%;
+  display: block;
+  margin: auto;
+  border: 1px solid black;
+}
+
 .errors{
   display: block;
   text-align: center;
 }
 
-h4{
+h4, h3{
   text-align: center;
 }
 
