@@ -1,6 +1,10 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+body{
+  background-image: url("http://img0.ndsstatic.com/wallpapers/6fb66a8f1d641158c51286a340ab7c24_large.jpeg")
+}
+
 #login_reg_border{
   border: 1px solid black;
   width: 70%;
@@ -9,12 +13,12 @@
 }
 
 .flash{
-  -webkit-animation-name: greenPulse;
+  -webkit-animation-name: redPulse;
   -webkit-animation-duration: 1s;
   -webkit-animation-iteration-count: infinite;
 }
 
-@-webkit-keyframes greenPulse {
+@-webkit-keyframes redPulse {
   from { background-color: #bc330d; -webkit-box-shadow: 0 0 9px #333; }
   50% { background-color: #e33100; -webkit-box-shadow: 0 0 18px #e33100; }
   to { background-color: #bc330d; -webkit-box-shadow: 0 0 9px #333; }
@@ -49,6 +53,20 @@ h4, h3{
   text-align: center;
 }
 
+#show_name{
+  text-align: center;
+  color: white;
+}
+
+.table{
+  width: 25%;
+  height: 70%;
+  display: block;
+  margin: auto;
+  padding: 2%;
+  border-radius: 5px;
+}
+
 .form{
   background-color: white;
   width: 50%;
@@ -60,13 +78,18 @@ h4, h3{
   border-radius: 5px;
 }
 
-h1{
+.headers{
   display: block;
   text-align: center;
-  margin: 3%;
+  font-size: 30px;
+  color: white;
 }
 
 .pulse{
+  display: block;
+  text-align: center;
+  color: white;
+  font-size: 100px;
   -webkit-animation: pulse 1.5s linear infinite;
   -moz-animation: pulse 1.5s linear infinite;
   -ms-animation: pulse 1.5s linear infinite;
@@ -78,10 +101,10 @@ h1{
     color: rgba(165, 25, 25, 1);
   }
   90% {
-    color: rgba(255,0,0,0.0);
+    color: #49F3FF;
   }
   100% {
-    color: rgba(255,0,0,1.0);
+    color: #49F3FF;
   }
 }
 
@@ -90,10 +113,10 @@ h1{
     color: rgba(165, 25, 25, 1);
   }
   90% {
-    color: rgba(255,0,0,0.0);
+    color: #49F3FF;
   }
   100% {
-    color: rgba(255,0,0,1.0);
+    color: #49F3FF;
   }
 }
 
@@ -102,10 +125,10 @@ h1{
     color: rgba(165, 25, 25, 1);
   }
   90%{
-    color: rgba(255,0,0,0.0);
+    color: #49F3FF;
   }
   100%{
-    color: rgba(255,0,0,1.0);
+    color: #49F3FF;
   }
 }
 
@@ -114,10 +137,10 @@ h1{
     color: rgba(165, 25, 25, 1);
   }
   90%{
-    color: rgba(255,0,0,0.0);
+    color: #49F3FF;
   }
   100%{
-    color: rgba(255,0,0,1.0);
+    color: #49F3FF;
   }
 }
 // @-webkit-keyframes pulse {
