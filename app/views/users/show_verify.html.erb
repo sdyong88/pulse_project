@@ -4,6 +4,11 @@
 
 <div class="form">
 	<%= form_tag users_verify_path do %>
+<% if flash[:notice] %>
+	<%= flash[:notice] %>
+<% end %>
+
+<%= form_tag users_verify_path do %>
 	<div class= "form-group">
 		<%= label_tag :code, "Verification Code:" %>
 		<%= text_field_tag :token, '', class: "form-control"%>
