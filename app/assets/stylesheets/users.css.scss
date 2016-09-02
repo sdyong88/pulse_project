@@ -1,12 +1,14 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
 #contacts{
   width: 50%;
   margin: auto;
 }
 
 body{
+  font-family: 'Permanent Marker', cursive;
   background-image: url("http://img0.ndsstatic.com/wallpapers/6fb66a8f1d641158c51286a340ab7c24_large.jpeg")
 }
 
@@ -30,6 +32,7 @@ body{
 }
 
 #add_contact{
+  font-family: 'Permanent Marker', cursive;
   width: 70%;
   display: block;
   margin: auto;
@@ -37,6 +40,7 @@ body{
 }
 
 #info{
+  font-family: 'Permanent Marker', cursive;
   width: 70%;
   margin: auto;
   padding: 1% 0 1% 0;
@@ -60,6 +64,7 @@ h4, h3{
 }
 
 #show_name{
+  font-family: 'Permanent Marker', cursive;
   text-align: center;
   color: white;
 }
@@ -92,6 +97,8 @@ h4, h3{
 }
 
 .pulse{
+  font-family: 'Permanent Marker', cursive;
+  // font-family: 'Indie Flower', cursive;
   display: block;
   text-align: center;
   color: white;
