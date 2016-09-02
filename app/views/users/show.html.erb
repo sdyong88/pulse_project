@@ -82,32 +82,50 @@
 
 <!-- Add Contact Button -->
 <div id="add_contact">
-  <button type="button" class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-target="#myModal">Add Emergency Contact</button>
+  <button type="button" class="btn btn-warning btn-lg btn-block" data-toggle="modal" data-target="#myModal">Add Emergency Contact</button>
 </div>
 
-<!-- Emergency Contacts Table -->
-<div class="table">
-  <h3 id="show_name">Emergency Contacts</h3>
-  <table class="table table-bordered">
-    <tr>
-      <th>Name</th>
-      <th>Phone #</th>
-    </tr>
-    <%@contacts.each do |contact|%>
-      <tr>
-        <td><%=contact.name%></td>
-        <td><%=contact.phone_number%></td>
-        <td>
-          <form action="/contact" method="post">
-            <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
-            <input type="hidden" name="_method" value="delete" />
-            <input type="hidden" name="contact_id" value="<%= contact.id %>" />
-            <input type='submit' class="btn btn-warning btn-block" value="Delete" />
-          </form>
-        </td>
-      </tr>
-    <%end%>
-  </table>
+<!-- Open Contacts Button -->
+<div id="add_contact">
+  <button type="button" class="btn btn-success btn-lg btn-block" data-toggle="modal" data-target="#contacts_table">Emergency Contacts</button>
+</div>
+
+
+<!-- Contacts Modal -->
+<div class="modal fade" id="contacts_table" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Emergency Contacts</h4>
+      </div>
+      <div class="modal-body">
+        <table class="table table-striped">
+          <tr>
+            <th>Name</th>
+            <th>Phone #</th>
+          </tr>
+          <%@contacts.each do |contact|%>
+            <tr>
+              <td><%=contact.name%></td>
+              <td><%=contact.phone_number%></td>
+              <td>
+                <form action="/contact" method="post">
+                  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
+                  <input type="hidden" name="_method" value="delete" />
+                  <input type="hidden" name="contact_id" value="<%= contact.id %>" />
+                  <input type='submit' class="btn btn-warning btn-block" value="Delete" />
+                </form>
+              </td>
+            </tr>
+          <%end%>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <input type="submit" class="btn btn-default" data-dismiss="modal" value="Close" />
+      </div>
+    </div>
+  </div>
 </div>
 
 <!-- Modal -->

@@ -1,6 +1,11 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+#contacts{
+  width: 50%;
+  margin: auto;
+}
+
 body{
   background-image: url("http://img0.ndsstatic.com/wallpapers/6fb66a8f1d641158c51286a340ab7c24_large.jpeg")
 }
@@ -28,6 +33,7 @@ body{
   width: 70%;
   display: block;
   margin: auto;
+  padding-bottom: 1%;
 }
 
 #info{
