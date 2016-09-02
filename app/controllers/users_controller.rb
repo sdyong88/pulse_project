@@ -13,13 +13,6 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
-  def new
-    if session[:user_id]
-      redirect_to '/users/show'
-    end
-    @user = User.new
-  end
-
   def show
     @user = current_user
     @contacts = current_user.contacts

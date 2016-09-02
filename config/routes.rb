@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   post "users/verify"
   post "users/resend"
   post "notification/trigger" => 'notifications#trigger_sms_alert'
+
   # Create Users
   resources :users, only:[:new,:create,:show]
 

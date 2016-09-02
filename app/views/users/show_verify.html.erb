@@ -1,6 +1,6 @@
-<p class="headers">Verification Page</p>
+<p class="headers font">Verification Page</p>
 
-<div class="form">
+<div class="form font">
 	<%= form_tag users_verify_path do %>
 		<% if flash[:notice] %>
 			<%= flash[:notice] %>
@@ -9,13 +9,13 @@
 
 <%= form_tag users_verify_path do %>
 	<p>An Account has been created, but we need to make sure you're a human in control of the phone number you gave us. Please enter the Verfication code we just sent to your phone</p>
-	<div class= "form-group">
+	<div class= "form-group font">
 		<%= label_tag :code, "Verification Code:" %>
 		<%= text_field_tag :token, '', class: "form-control"%>
 	</div>
-	<button type="submit" class="btn btn-primary">Verify Token</button>
+	<button type="submit" class="btn btn-primary font">Verify Token</button>
 	<%= form_tag users_resend_path do %>
-		<button type="submit" class= "btn">Resend Code</button>
+		<button type="submit" class= "btn font">Resend Code</button>
 	<%end%>
 <%end%>
 </div>
